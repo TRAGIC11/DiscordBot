@@ -12,7 +12,7 @@ list = []
 for i in range (0,26):
   list.append(file1.readline())
 
-@client.command(pass_content=True)
+@client.command()
 async def join (ctx):
   if (ctx.author.voice):
     channel = ctx.message.author.voice.channel
@@ -41,8 +41,7 @@ async def on_ready():
 
 @client.command()
 async def clear(ctx, amount= 100):
-  await ctx.channel.purge(limit=amount)
-
+  await ctx.channel.purge(limit=amount,check=lambda msg: not msg.pinned)
 
 
 my_secret = os.environ['TOKEN']
