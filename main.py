@@ -12,8 +12,6 @@ list = []
 for i in range (0,26):
   list.append(file1.readline())
 
-illegal_words = [":stuck_out_tongue:", ":smiling_face_with_3_hearts:", ":kissing_heart:"]
-
 
 @client.command()
 async def join (ctx):
@@ -46,9 +44,6 @@ async def on_ready():
 async def c(ctx, amount= 100):
   await ctx.channel.purge(limit=amount,check=lambda msg: not msg.pinned)
 
-#@client.command()
-#async def d(ctx):
-#  await ctx.channel.purge(limit = 100,check= (ctx.message.content.contains == illegal_words)) 
 
 my_secret = os.environ['TOKEN']
 client.run(os.getenv('TOKEN'))
